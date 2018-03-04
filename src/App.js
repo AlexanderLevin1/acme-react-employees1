@@ -18,13 +18,16 @@ class App extends Component{
 componentDidMount() {
   axios.get('/api/employees')
     .then( result => result.data)
-    .then( employees => this.setState({ employees }))
-
-  axios.get('/api/managers')
-  .then( result => result.data)
-  .then( managers => this.setState({ managers }))
-
-
+    .then( employees =>
+      const managerMap = employees.reduce((memo, employee)=> {
+        if(employee.manager){
+          memo[employee.manager.id] = employee.manager;
+        }
+        return memo;
+      }, {});
+      const managers = Object.keys(managerMap).map( key => managerMap[key]);
+      this.setState({ managers, employees });
+      })
 }
     render() {
         const { employees } = this.state;

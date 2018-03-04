@@ -19,7 +19,7 @@ const Nav = ({ location, employees, managers }) => {
             path === '/managers' ? (
                 <span>Managers{ managers.length }</span>
             ):(
-                <Link to='/managers'>Managers</Link>
+                <Link to='/managers'>Managers{ managers.length }</Link>
             )
         }
         </li>
