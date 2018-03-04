@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Nav = ({ location, employees }) => {
+const Nav = ({ location, employees, managers }) => {
     const path = location.path
     return (
     <ul>
@@ -17,7 +17,7 @@ const Nav = ({ location, employees }) => {
         <li>
         {
             path === '/managers' ? (
-                <span>Managers</span>
+                <span>Managers{ managers.length }</span>
             ):(
                 <Link to='/managers'>Managers</Link>
             )

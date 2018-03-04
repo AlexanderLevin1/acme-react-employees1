@@ -7,9 +7,16 @@ app.use('/vendor', express.static(path.join(__dirname, 'node_modules')));
 app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, 'index.html')));
 
 app.get('/api/employees', (req, res, next) => {
-    Employee.findAll()
+    Employee.findAll({
+        include: [
+        {
+            model: Employee,
+            as: 'manager'
+        }
+        ]
+    })
     .then(employees => res.send(employees))
-    .catch(next)
+    .catch(next);
 });
 
 const port = process.env.PORT || 3000;
