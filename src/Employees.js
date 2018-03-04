@@ -8,9 +8,9 @@ const Employees = ({ employees }) => {
             employees.map( employee => {
                 return(
                     <li key={employee.id}>
-                    <Link to={`/employees/${ employee.id} `}>
+                  {/*  <Link to={`/employees/${ employee.id} `}></Link>*/}
                     { employee.name }
-                    </Link>
+
                     </li>
                 )
             })

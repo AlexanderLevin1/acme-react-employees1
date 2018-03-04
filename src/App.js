@@ -16,9 +16,15 @@ class App extends Component{
     }
 }
 componentDidMount() {
-    axios.get('/api/employees')
-        .then( result => result.data)
-        .then( employees => this.setState({ employees }))
+  axios.get('/api/employees')
+    .then( result => result.data)
+    .then( employees => this.setState({ employees }))
+
+  axios.get('/api/managers')
+  .then( result => result.data)
+  .then( managers => this.setState({ managers }))
+
+
 }
     render() {
         const { employees } = this.state;
