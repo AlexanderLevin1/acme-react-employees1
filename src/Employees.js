@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Employees = ({ employees }) => {
     return(
@@ -7,7 +8,9 @@ const Employees = ({ employees }) => {
             employees.map( employee => {
                 return(
                     <li key={employee.id}>
+                    <Link to={`/employees/${ employee.id} `}>
                     { employee.name }
+                    </Link>
                     </li>
                 )
             })
